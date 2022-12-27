@@ -1,8 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+
 #include "ShooterCharectar.h"
 #include "GameFramework\SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+
+
 
 // Sets default values
 AShooterCharectar::AShooterCharectar() :
@@ -89,6 +92,8 @@ void AShooterCharectar::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AShooterCharectar::LookUpRate);
 	PlayerInputComponent->BindAxis("Turn", this, &AShooterCharectar::APawn::AddControllerYawInput);
 	PlayerInputComponent->BindAxis("LookUp", this, &AShooterCharectar::APawn::AddControllerPitchInput);
+	
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 }
-
