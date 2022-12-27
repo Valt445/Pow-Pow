@@ -57,13 +57,13 @@ void AShooterCharectar::MoveRight(float Value)
 	}
 }
 
-void AShooterCharectar::TurnAtRate(float Rate)
+void AShooterCharectar::TurnRate(float Rate)
 {
 	// calculate delta for this frame from the rate information 
 	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
 }
 
-void AShooterCharectar::LookUpAtRate(float Rate)
+void AShooterCharectar::LookUpRate(float Rate)
 {
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 
@@ -84,8 +84,8 @@ void AShooterCharectar::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AShooterCharectar::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AShooterCharectar::MoveRight);
-	PlayerInputComponent->BindAxis("TurnRate", this, &AShooterCharectar::TurnAtRate);
-	PlayerInputComponent->BindAxis("LookUpRate", this, &AShooterCharectar::LookUpAtRate);
+	PlayerInputComponent->BindAxis("TurnRate", this, &AShooterCharectar::TurnRate);
+	PlayerInputComponent->BindAxis("LookUpRate", this, &AShooterCharectar::LookUpRate);
 
 }
 
