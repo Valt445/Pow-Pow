@@ -6,7 +6,8 @@
 
 // Sets default values
 AShooterCharectar::AShooterCharectar() :
-	BaseTurnRate(45.f)
+	BaseTurnRate(45.f),
+	BaseLookUpRate(45.f)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -86,6 +87,8 @@ void AShooterCharectar::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAxis("MoveRight", this, &AShooterCharectar::MoveRight);
 	PlayerInputComponent->BindAxis("TurnRate", this, &AShooterCharectar::TurnRate);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AShooterCharectar::LookUpRate);
+	PlayerInputComponent->BindAxis("Turn", this, &AShooterCharectar::APawn::AddControllerYawInput);
+	PlayerInputComponent->BindAxis("LookUp", this, &AShooterCharectar::APawn::AddControllerPitchInput);
 
 }
 
